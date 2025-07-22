@@ -6,13 +6,14 @@
 #   install.packages("renv")
 # }
 # renv::init()
-# renv::install(c("httr", "jsonlite", "tidyverse", "lubridate"))
+#renv::install(c("httr", "jsonlite", "tidyverse", "lubridate","rsconnect"))
 
 # Load necessary packages
 library(httr)
 library(jsonlite)
 library(tidyverse)
 library(lubridate)
+library(rsconnect)
 
 # Function to get data from GitHub API
 get_github_data <- function(since_date, top_n = 100) {
