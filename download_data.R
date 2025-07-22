@@ -11,6 +11,9 @@
 
 #renv::init()
 
+#renv::status()
+
+#renv::snapshot()
 
 
 # Load necessary packages
