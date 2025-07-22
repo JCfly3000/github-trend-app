@@ -8,6 +8,11 @@
 # renv::init()
 #renv::install(c("httr", "jsonlite", "tidyverse", "lubridate","rsconnect"))
 
+
+#renv::init()
+
+
+
 # Load necessary packages
 library(httr)
 library(jsonlite)
