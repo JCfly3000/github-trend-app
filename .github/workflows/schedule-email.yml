@@ -33,6 +33,11 @@ jobs:
       # Add this step to install the missing system dependency
       - name: Install system dependencies for V8
         run: sudo apt-get update && sudo apt-get install -y libnode-dev
+        
+      - name: Install system dependencies for libcurl
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libcurl4-openssl-dev # For Debian/Ubuntu based runners like ubuntu-latest
 
       - name: Echo R Version (R expression)
         run: Rscript -e "cat(R.version.string, '\n')"
