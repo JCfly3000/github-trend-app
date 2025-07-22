@@ -40,3 +40,9 @@ jobs:
           timestamp=$(date -u)
           git commit -m "Latest data: ${timestamp}" || exit 0
           git push      
+
+      - name: shinyapps deploy
+        run: |
+             rsconnect::setAccountInfo(name='shahronak', token='${{secrets.SHINYAPPS_TOKEN}}', secret='${{secrets.SHINYAPPS_SECRET}}')
+             rsconnect::deployApp(appName = 'github_trend',account = 'tonyflying', server = 'shinyapps.io', forceUpdate = TRUE)
+        shell: Rscript {0}
