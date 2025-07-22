@@ -59,8 +59,8 @@ jobs:
 
       - name: shinyapps deploy
         run: |
-             Rscript -e "rsconnect::setAccountInfo(name='tonyflying', token='${{secrets.SHINYAPPS_TOKEN}}', secret='${{secrets.SHINYAPPS_SECRET}}')""
-             Rscript -e "rsconnect::deployApp(appName = 'github_trend',account = 'tonyflying', server = 'shinyapps.io', forceUpdate = TRUE)""
+             Rscript -e "rsconnect::setAccountInfo(name='tonyflying', token='${{secrets.SHINYAPPS_TOKEN}}', secret='${{secrets.SHINYAPPS_SECRET}}')"
+             Rscript -e "rsconnect::deployApp(appName = 'github_trend',account = 'tonyflying', server = 'shinyapps.io', forceUpdate = TRUE)"
   
 
       - name: Commit and push if it changed
