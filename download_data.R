@@ -10,7 +10,7 @@
 
 
 #renv::init()
-
+#renv::activate()
 #renv::status()
 
 #renv::snapshot()

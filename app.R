@@ -14,8 +14,6 @@ library(plotly)
 library(tidyverse)
 library(lubridate)
 
-# --- Helper Functions ---
-
 # Function to create the plot
 create_plot <- function(df, since_days) {
   if (is.null(df) || nrow(df) == 0) {

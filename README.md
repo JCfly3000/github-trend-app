@@ -2,6 +2,8 @@
 
 This project is a Shiny web application that displays the top 20 most starred GitHub repositories created within a selected time frame (e.g., last 7, 30, 90, 180, or 365 days).
 
+[GitHub Trend Shiny App](https://tonyflying.shinyapps.io/github_trend/)
+
 ## Features
 
 - **Dynamic Time Filters:** A dropdown menu allows users to select a time range to view the fastest-growing projects.
@@ -12,15 +14,17 @@ This project is a Shiny web application that displays the top 20 most starred Gi
 
 1. **Clone the repository:**
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/JCfly3000/github-trend-app.git
    ```
 
 2. **Set up the R environment:**
-   - Open your R console in the project directory.
-   - Install the required packages by running:
+   - This project is using R version 4.4.3 and `renv` for package management. To set up the environment, run the following commands in your R console:
      ```R
-     install.packages(c("shiny", "ggplot2", "gt", "tidyverse", "lubridate", "httr", "jsonlite"))
+     install.packages("renv")
+     renv::activate()
+     renv::restore()
      ```
+
 
 3. **Run the data download script:**
    - In your R console, run the following command to download the initial dataset:
@@ -28,10 +32,21 @@ This project is a Shiny web application that displays the top 20 most starred Gi
      source("download_data.R")
      ```
 
-4. **Run the Shiny app:**
+4. **Run the Shiny app on local:**
    - In your R console, run the following command to launch the app:
      ```R
      shiny::runApp("app.R")
+     ```
+5. **Run the Shiny app on shinyapp.io:**
+   - get token and secret from shinyapps.io, then run the following code in R console to uploas shinyapp to shinyapps.io:
+     ```R
+     rsconnect::setAccountInfo(
+        name='account_name'
+        , token='xxxxxxx'
+        , secret='xxxxxxx'
+          )
+          
+      rsconnect::deployApp(appName = 'project_name',account = 'account_name', server = 'shinyapps.io', forceUpdate = TRUE)
      ```
 
 ## Project Structure
@@ -44,7 +59,7 @@ This project is a Shiny web application that displays the top 20 most starred Gi
 
 ## Automated Data Updates
 
-The project uses a GitHub Actions workflow to keep the data up-to-date. The workflow is triggered:
+The project uses a GitHub Actions workflow(`.github/workflows/schedule-email.yml`) to keep the data up-to-date. The workflow is triggered:
 
 - **Daily at 7:00 AM Beijing time (23:00 UTC):** The `download_data.R` script is run automatically to fetch the latest data.
 - **On every push to the `main` branch:** The data is updated whenever new code is pushed to the main branch.
