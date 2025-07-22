@@ -30,7 +30,11 @@ jobs:
       - name: Run data download script
         run: Rscript download_data.R
 
-        
+      - name: shinyapps deploy
+        run: |
+             Rscript -e "rsconnect::setAccountInfo(name='tonyflying', token='${{secrets.SHINYAPPS_TOKEN}}', secret='${{secrets.SHINYAPPS_SECRET}}')""
+             Rscript -e "rsconnect::deployApp(appName = 'github_trend',account = 'tonyflying', server = 'shinyapps.io', forceUpdate = TRUE)""
+  
 
       - name: Commit and push if it changed
         run: |-
@@ -41,8 +45,3 @@ jobs:
           git commit -m "Latest data: ${timestamp}" || exit 0
           git push      
 
-      - name: shinyapps deploy
-        run: |
-             Rscript -e "rsconnect::setAccountInfo(name='tonyflying', token='${{secrets.SHINYAPPS_TOKEN}}', secret='${{secrets.SHINYAPPS_SECRET}}')""
-             Rscript -e "rsconnect::deployApp(appName = 'github_trend',account = 'tonyflying', server = 'shinyapps.io', forceUpdate = TRUE)""
-  
