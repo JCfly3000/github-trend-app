@@ -15,13 +15,24 @@
 
 #renv::snapshot()
 
-
+# renv::restore()
 # Load necessary packages
+
+#install.packages('pak')
+#pak::pkg_install(c("plotly","httr", "jsonlite", "tidyverse", "lubridate", "rsconnect", "shiny", "ggplot2", "gt"))
+
 library(httr)
 library(jsonlite)
 library(tidyverse)
 library(lubridate)
 library(rsconnect)
+
+library(shiny)
+library(ggplot2)
+library(gt)
+library(tidyverse)
+library(lubridate)
+
 
 # Function to get data from GitHub API
 get_github_data <- function(since_date, top_n = 100) {

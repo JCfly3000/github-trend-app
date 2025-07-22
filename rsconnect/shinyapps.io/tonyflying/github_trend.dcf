@@ -1,0 +1,10 @@
+name: github_trend
+title:
+username: tonyflying
+account: tonyflying
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 15110247
+bundleId: 10657420
+url: https://tonyflying.shinyapps.io/github_trend/
+version: 1
