@@ -37,7 +37,7 @@ jobs:
       - name: Install system dependencies for libcurl
         run: |
           sudo apt-get update
-          sudo apt-get install -y libcurl4-openssl-dev # For Debian/Ubuntu based runners like ubuntu-latest
+          sudo apt-get install -y libcurl4-openssl-dev libfontconfig1-dev libfreetype6-dev r-cran-devtools # For Debian/Ubuntu based runners like ubuntu-latest 
 
       - name: Echo R Version (R expression)
         run: Rscript -e "cat(R.version.string, '\n')"
